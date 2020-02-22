@@ -1,0 +1,40 @@
+{% extends 'rango/base.html' %}
+
+{% block title_block %}
+    Login
+{% endblock %}
+
+{% block custom_style %}
+    <link href="https://getbootstrap.com/docs/4.2/examples/floating-labels/floating-labels.css" rel="stylesheet">
+{% endblock %}
+
+{% block body_block %}
+    <div class="jumbotron p-4">
+        <div class="container">
+            <h1 class="jumbotron-heading">Login</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <form class="form-signin" role="form" method="post" action=".">
+            {% csrf_token %}
+            <div class="form-label-group">
+                <input type="text" name="username" id="inputUsername" class="form-control"
+                placeholder="Username" required autofocus>
+                <label for="inputUsername">Username</label>
+            </div>
+            <div class="form-label-group">
+                <input type="password" name="password" id="inputPassword" class="form-control"
+                placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit"
+            value="Submit">Sign in</button>
+        </form>
+    </div>
+
+    <p>
+        Not registered?
+        <a href="{% url 'registration_register' %}">Register here!</a>
+    </p>
+{% endblock %}
